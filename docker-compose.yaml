@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  procman:
+    container_name: procman
+    image: golang:latest
+    ports:
+      - 8000:8000
+    volumes:
+      - ./build/:/home/procman
+    working_dir: /home/procman
+    command: ./procman

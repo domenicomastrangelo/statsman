@@ -37,8 +37,8 @@ func GetProcessesList() []process {
 		}
 
 		processes = append(processes, process{
-			"Pid":  fmt.Sprintf("%d", procNameInt),
-			"Name": string(bytes.Trim(cmdLine, "\x00")),
+			"Pid":  strings.TrimSpace(fmt.Sprintf("%d", procNameInt)),
+			"Name": strings.TrimSpace(string(bytes.ReplaceAll(cmdLine, []byte("\x00"), []byte(" ")))),
 		})
 
 	}

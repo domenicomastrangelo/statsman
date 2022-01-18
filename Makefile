@@ -1,5 +1,5 @@
 build-linux:
-	GOOS=linux GOARCH=amd64	go build -o ./build/procman ./cmd
+	GOOS=linux GOARCH=amd64	go build -o ./build/statsman ./cmd
 run:
 	go run ./cmd/main.go
 du:

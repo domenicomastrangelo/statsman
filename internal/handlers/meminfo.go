@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/domenicomastrangelo/procman/internal/memory"
+	"github.com/domenicomastrangelo/statsman/internal/memory"
 )
 
 func Meminfo(w http.ResponseWriter, r *http.Request) {

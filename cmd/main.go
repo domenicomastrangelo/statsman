@@ -3,7 +3,7 @@ package main
 import (
 	"net/http"
 
-	"github.com/domenicomastrangelo/procman/internal/handlers"
+	"github.com/domenicomastrangelo/statsman/internal/handlers"
 	"github.com/gorilla/mux"
 )
 

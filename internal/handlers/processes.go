@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/domenicomastrangelo/procman/internal/processes"
+	"github.com/domenicomastrangelo/statsman/internal/processes"
 	"github.com/gorilla/mux"
 )
 

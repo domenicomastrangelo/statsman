@@ -1,4 +1,4 @@
-module github.com/domenicomastrangelo/procman
+module github.com/domenicomastrangelo/statsman
 
 go 1.17
 

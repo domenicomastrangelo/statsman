@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/domenicomastrangelo/procman/internal/disk"
+	"github.com/domenicomastrangelo/statsman/internal/disk"
 )
 
 func DisksSpace(w http.ResponseWriter, r *http.Request) {

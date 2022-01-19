@@ -10,6 +10,8 @@ import (
 
 func main() {
 	r := mux.NewRouter()
+	r.Use(authenticate.Validate)
+
 	r.HandleFunc("/processes", handlers.ProcessesList).Methods("GET")
 	r.HandleFunc("/processes/details/{pid}", handlers.ProcessDetails).Methods("GET")
 	r.HandleFunc("/memory", handlers.Meminfo).Methods("GET")

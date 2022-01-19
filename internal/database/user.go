@@ -12,11 +12,11 @@ import (
 var SqliteDatabase *sql.DB
 
 func init() {
-	file, err := os.Open("/usr/local/var/statsman/db.db")
+	file, err := os.Open(os.Getenv("HOME") + "/.statsman/db.db")
 
 	if err != nil {
-		os.Mkdir("/usr/local/var/statsman/", 0770)
-		file, err = os.Create("/usr/local/var/statsman/db.db")
+		os.Mkdir(os.Getenv("HOME")+"/.statsman/", 0770)
+		file, err = os.Create(os.Getenv("HOME") + "/.statsman/db.db")
 
 		if err != nil {
 			log.Println(err.Error())
@@ -28,11 +28,11 @@ func init() {
 	if file != nil {
 		file.Close()
 	} else {
-		log.Fatalln("Could not create file /usr/local/var/statsman/db.db")
+		log.Fatalln("Could not create file " + os.Getenv("HOME") + "/.statsman/db.db")
 		return
 	}
 
-	SqliteDatabase, _ = sql.Open("sqlite3", "/usr/local/var/statsman/db.db")
+	SqliteDatabase, _ = sql.Open("sqlite3", os.Getenv("HOME")+"/.statsman/db.db")
 
 	createUsersTable()
 }

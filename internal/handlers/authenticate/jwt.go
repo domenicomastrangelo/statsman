@@ -4,13 +4,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"os"
 	"time"
 
 	"github.com/domenicomastrangelo/statsman/internal/database"
 	"github.com/golang-jwt/jwt"
 )
 
-var key = []byte("thisisthekey")
+var key = []byte(os.Getenv("statsman_pwd"))
 
 func authenticateJWT(creds database.Credentials) (string, error) {
 	token := jwt.New(jwt.SigningMethodHS256)

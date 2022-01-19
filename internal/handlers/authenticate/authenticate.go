@@ -4,10 +4,12 @@ import (
 	"encoding/json"
 	"io"
 	"net/http"
+
+	"github.com/domenicomastrangelo/statsman/internal/database"
 )
 
 func Auth(w http.ResponseWriter, r *http.Request) {
-	creds := credentials{}
+	creds := database.Credentials{}
 
 	body, err := io.ReadAll(r.Body)
 
@@ -23,7 +25,7 @@ func Auth(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if !creds.checkCredentials() {
+	if !creds.CheckCredentials() {
 		w.Write([]byte("Unauthorized"))
 		return
 	}

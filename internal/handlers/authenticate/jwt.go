@@ -6,12 +6,13 @@ import (
 	"log"
 	"time"
 
+	"github.com/domenicomastrangelo/statsman/internal/database"
 	"github.com/golang-jwt/jwt"
 )
 
 var key = []byte("thisisthekey")
 
-func authenticateJWT(creds credentials) (string, error) {
+func authenticateJWT(creds database.Credentials) (string, error) {
 	token := jwt.New(jwt.SigningMethodHS256)
 	claims := token.Claims.(jwt.MapClaims)
 
@@ -60,5 +61,5 @@ func validateJWT(tokenFromRequest string) (string, error) {
 }
 
 func refreshJWTToken(claims jwt.MapClaims) (string, error) {
-	return authenticateJWT(credentials{Username: claims["username"].(string)})
+	return authenticateJWT(database.Credentials{Username: claims["username"].(string)})
 }
